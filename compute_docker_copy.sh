@@ -1,0 +1,1 @@
+docker cp compute/. slurmctld:/home/compute/

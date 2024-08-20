@@ -45,6 +45,10 @@ services:
       - "6817"
     depends_on:
       - "slurmdbd"
+    ports:
+      - "127.0.0.1:7889:7889"
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
 
   c1:
     image: slurm-docker-cluster:${IMAGE_TAG:-21.08}

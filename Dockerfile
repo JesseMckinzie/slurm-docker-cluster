@@ -6,6 +6,8 @@ LABEL org.opencontainers.image.source="https://github.com/giovtorres/slurm-docke
       org.label-schema.docker.cmd="docker-compose up -d" \
       maintainer="Giovanni Torres"
 
+RUN yum -y update && yum install -y ca-certificates
+
 RUN set -ex \
     && yum makecache \
     && yum -y update \
@@ -97,3 +99,5 @@ COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
 
 CMD ["slurmdbd"]
+
+EXPOSE 7889
